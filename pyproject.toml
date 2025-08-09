@@ -1,0 +1,20 @@
+[tool.poetry]
+
+name = "fastapi-base-application"
+version = "0.1.0"
+description = ""
+authors = ["Gysborn"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "fastapi_base_application"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.116.1"
+uvicorn = {extras = ["standard"], version = "^0.35.0"}
+pydantic = {extras = ["email"], version = "^2.11.7"}
+pydantic-settings = "^2.10.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
