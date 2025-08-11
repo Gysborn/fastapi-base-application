@@ -1,4 +1,6 @@
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, declared_attr
+from sqlalchemy.orm import DeclarativeBase, declared_attr, Mapped, mapped_column
+
+from .mixins.id_int_pk import IntIdPkMxn
 
 
 class Base(DeclarativeBase):
@@ -11,11 +13,9 @@ class Base(DeclarativeBase):
             return None
         return cls.__name__.lower()
 
-    id: Mapped[int] = mapped_column(primary_key=True)
 
-
-class User(Base):
+class User(IntIdPkMxn, Base):
     __tablename__ = "users"
-    # __table_args__ = {"extend_existing": True}
 
     username: Mapped[str] = mapped_column(unique=True)
+    # __table_args__ = {"extend_existing": True}
