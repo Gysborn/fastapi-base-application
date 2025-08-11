@@ -5,6 +5,7 @@ from fastapi import FastAPI
 from api import router as api_router
 from core.config import settings
 from src.core.models import db_helper
+from fastapi.responses import ORJSONResponse
 
 
 @asynccontextmanager
@@ -16,7 +17,7 @@ async def lifespan(app: FastAPI):
     print("dispose engine")
 
 
-main_app = FastAPI(lifespan=lifespan)
+main_app = FastAPI(lifespan=lifespan, default_response_class=ORJSONResponse)
 main_app.include_router(api_router, prefix=settings.api.prefix)
 
 if __name__ == "__main__":
