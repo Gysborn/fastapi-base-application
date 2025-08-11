@@ -12,3 +12,10 @@ class Base(DeclarativeBase):
         return cls.__name__.lower()
 
     id: Mapped[int] = mapped_column(primary_key=True)
+
+
+class User(Base):
+    __tablename__ = "users"
+    # __table_args__ = {"extend_existing": True}
+
+    username: Mapped[str] = mapped_column(unique=True)

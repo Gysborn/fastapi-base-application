@@ -5,8 +5,8 @@ class UserBase(BaseModel):
     username: str
 
 
-# class UserCreate(UserBase):
-#     pass
+class UserCreate(UserBase):
+    pass
 
 
 class UserRead(UserBase):
