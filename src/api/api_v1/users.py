@@ -20,7 +20,7 @@ async def get_users(
 
 
 @router.post("", response_model=UserRead)
-async def create_user(
+async def create_user_handler(
     user_create: UserCreate,
     session: AsyncSession = Depends(
         db_helper.session_getter,
